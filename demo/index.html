@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Scroll Observer demo</title>
+	<link rel="canonical" href="https://lidly.nl/opensource-share/scroll-observer/">
+	<style type="text/css">
+		/* Demo layout (neutraal) */
+		:root{color-scheme:light;}
+		body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55;}
+		header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10;}
+		header .wrap{max-width:980px;margin:0 auto;padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;}
+		header a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.2);}
+		main{max-width:980px;margin:0 auto;padding:24px 18px;}
+		section{margin:42px 0;}
+		.kicker{opacity:.65;font-size:13px;letter-spacing:.02em;text-transform:uppercase;}
+		.card{border:1px solid #eee;border-radius:14px;padding:18px 18px;background:#fff;}
+		.grid{display:grid;grid-template-columns:1fr;gap:14px;}
+		@media(min-width:860px){.grid{grid-template-columns:1fr 1fr;}}
+		.spacer{height:60vh;}
+		footer{border-top:1px solid #eee;background:#fafafa;}
+		footer .wrap{max-width:980px;margin:0 auto;padding:36px 18px;}
+		/* jouw CSS (exact) */
+	</style>
+	<link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+
+<header>
+	<div class="wrap">
+		<div>
+			<div class="kicker">Open source demo</div>
+			<strong>Scroll observer</strong>
+		</div>
+		<div>
+			<a href="https://lidly.nl/opensource-share/scroll-observer/">Demo (lidly.nl)</a>
+		</div>
+	</div>
+</header>
+
+<main>
+	<section>
+		<h1>Viewport states</h1>
+		<p>Scroll naar beneden. De attribute <strong>in-viewport</strong> wordt door het script gezet op false/true/passed.</p>
+	</section>
+
+	<div class="spacer"></div>
+
+	<section class="grid">
+		<div class="card">
+			<h2>Tekst (p/h*)</h2>
+			<p>Deze tekst wordt op clip-path en opacity geanimeerd zodra hij de viewport inkomt. Nog een zin. En nog een.</p>
+			<p>De CSS gebruikt clip-path en filter. Dit is expres een beetje “hard” zodat je het effect ziet.</p>
+		</div>
+		<div class="card">
+			<h3>Lijst (li)</h3>
+			<ul>
+				<li>Item 1 (verdwijnt als false)</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="spacer"></div>
+
+	<section class="card">
+		<h2>Article zinnen als spans</h2>
+		<article>
+			<p>Dit is zin één. Dit is zin twee! Dit is zin drie? Dit is zin vier. Dit is zin vijf.</p>
+			<p>De TreeWalker splitst alleen tekstnodes en laat inline HTML staan, zoals <strong>vet</strong> en <a href="#">links</a>. Handig voor subtiele reveal-animaties.</p>
+		</article>
+	</section>
+
+	<div class="spacer"></div>
+
+	<section class="card">
+		<h2>Form</h2>
+		<form>
+			<p><label>Naam<br><input type="text" value="" placeholder="Type iets"></label></p>
+			<p><label>E-mail<br><input type="email" value="" placeholder="test@example.com"></label></p>
+			<p><button type="button">Dummy button</button></p>
+		</form>
+	</section>
+</main>
+
+<footer>
+	<div class="wrap">
+		<div class="card">
+			<h4>Footer block</h4>
+			<p>Footer div krijgt translate/opacity tot hij zichtbaar is.</p>
+		</div>
+	</div>
+</footer>
+
+<script type="text/javascript" src="../scroll-observer.js"></script>
+</body>
+</html>

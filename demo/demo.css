@@ -1,0 +1,63 @@
+*[in-viewport] {
+	will-change: transform clip-path filter;
+	transition: 0.4s ease clip-path, 0.5s ease filter, 0.2s ease transform;
+	transition-delay: 0.1s;
+}
+*:is(p,h1,h2,h3,h4)[in-viewport][in-viewport="false"] {
+	filter: opacity(50%);
+	clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+}
+*:is(p,h1,h2,h3,h4)[in-viewport] {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+*:is(li)[in-viewport][in-viewport="false"],
+*:is(form)[in-viewport][in-viewport="false"] * {
+	filter: opacity(0%);
+}
+*:is(li)[in-viewport] {
+	
+}
+
+footer div[in-viewport="false"] {
+	transform: translateY(100px);
+	filter: opacity(0%);
+}
+footer div[in-viewport]:not([in-viewport="false"]) {
+	transition-delay: 0s;
+	transition: 0.8s ease clip-path, 0.4s ease filter, 0.5s ease transform;
+}
+
+article p > span[in-viewport] {
+
+	transition: 0.4s ease filter, 0.5s ease transform!important;
+}
+article p > span[in-viewport]:not([in-viewport="false"]) {
+	
+}
+article p > span[in-viewport="false"] {
+	transform: translateY(30px);
+	filter: opacity(0%);
+}
+
+/* nth-child 1 t/m 20 met oplopende delay én oplopende duration */
+article p > span:nth-child(1)  { transition-delay: 0.20s; transition-duration: 0.20s; }
+article p > span:nth-child(2)  { transition-delay: 0.30s; transition-duration: 0.25s; }
+article p > span:nth-child(3)  { transition-delay: 0.40s; transition-duration: 0.30s; }
+article p > span:nth-child(4)  { transition-delay: 0.50s; transition-duration: 0.35s; }
+article p > span:nth-child(5)  { transition-delay: 0.60s; transition-duration: 0.40s; }
+article p > span:nth-child(6)  { transition-delay: 0.70s; transition-duration: 0.45s; }
+article p > span:nth-child(7)  { transition-delay: 0.80s; transition-duration: 0.50s; }
+article p > span:nth-child(8)  { transition-delay: 0.90s; transition-duration: 0.55s; }
+article p > span:nth-child(9)  { transition-delay: 1.00s; transition-duration: 0.60s; }
+article p > span:nth-child(10) { transition-delay: 1.10s; transition-duration: 0.65s; }
+article p > span:nth-child(11) { transition-delay: 1.20s; transition-duration: 0.70s; }
+article p > span:nth-child(12) { transition-delay: 1.30s; transition-duration: 0.75s; }
+article p > span:nth-child(13) { transition-delay: 1.40s; transition-duration: 0.80s; }
+article p > span:nth-child(14) { transition-delay: 1.50s; transition-duration: 0.85s; }
+article p > span:nth-child(15) { transition-delay: 1.60s; transition-duration: 0.90s; }
+article p > span:nth-child(16) { transition-delay: 1.70s; transition-duration: 0.95s; }
+article p > span:nth-child(17) { transition-delay: 1.80s; transition-duration: 1.00s; }
+article p > span:nth-child(18) { transition-delay: 1.90s; transition-duration: 1.05s; }
+article p > span:nth-child(19) { transition-delay: 2.00s; transition-duration: 1.10s; }
+article p > span:nth-child(20) { transition-delay: 2.10s; transition-duration: 1.15s; }
